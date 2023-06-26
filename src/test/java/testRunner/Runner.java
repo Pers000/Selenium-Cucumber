@@ -19,10 +19,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		monochrome = false,
 
 		// to map step definition files
-		glue = "steps",
+		glue = {"steps", "hooks", "pages"},
 
 		// pretty will display the actual function it executed instead of just dots
-		plugin = { "pretty", "html:CucumberReports" },
+		plugin = { "pretty", "html:CucumberReports",
+				"json:reports/results.json",
+				"junit:reports/results.xml"},
 
 		// adding tags,
 		tags = { "@smoke" })

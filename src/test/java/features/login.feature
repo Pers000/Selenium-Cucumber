@@ -1,18 +1,18 @@
-Feature: Bookcar Application Test
+Feature: Auth Test
+
+  Background: 
+    And User click on the login link
 
   @smoke
-  Scenario: Login should be succesfull
-    Given user navigates to the Bookcart Application
-    And user clicks on the login button
-    And user enters the username
-    And user enters the password
-    When user clicks in the login button
-    Then login should be successful
+  Scenario: Login should be success
+    And User enter the username as "ponsta360v6@gmail.com"
+    And User enter the password as "Pass1234"
+    When User click on the login button
+    Then Login should be success
 
-  Scenario: Login should NOT be succesfull
-    Given user navigates to the Bookcart Application
-    And user clicks on the login button
-    And user enters the username
-    And user enters the password
-    When user clicks in the login button
-    But Login shoul fail
+  @smoke
+  Scenario: Login should not be success
+    Given User enter the username as "ponsta360v6@gmail.com"
+    Given User enter the password as "asdsad"
+    When User click on the login button
+    But Login should fail
