@@ -49,7 +49,7 @@ public class MyHooks {
 	@After(order = 1)
 	public void afterScenario(Scenario scenario) {
 		boolean failed = scenario.isFailed();
-		System.out.println("is Failed? "+failed);
+		System.out.println("is Failed? "+ failed);
 		if(!failed) {
 			byte[] screenshotAs = context.getDriver().getScreenshotAs(OutputType.BYTES);
 			scenario.embed(screenshotAs, "image/png");

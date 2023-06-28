@@ -6,7 +6,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
 		// all the feature files under this folder will be executed
-		features = { "src/test/java/features" },
+		features = { "src/test/java/features/login.feature" },
 
 		// if dryrun is set to true, it will not be executed but will rather check the
 		// code i.e. mapping
@@ -22,12 +22,13 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		glue = {"steps", "hooks", "pages"},
 
 		// pretty will display the actual function it executed instead of just dots
-		plugin = { "pretty", "html:CucumberReports",
-				"json:reports/results.json",
-				"junit:reports/results.xml"},
-
-		// adding tags,
-		tags = { "@smoke" })
+				plugin =  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+				
+//				plugin = {"pretty", "html:CucumberReports",
+//						"json:reports/result.json",
+//						"junit:reports/result.xml"}
+//				tags = {"@smoke and  @reg"}
+				)
 
 public class Runner extends AbstractTestNGCucumberTests {
 }
